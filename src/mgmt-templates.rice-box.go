@@ -1,4 +1,4 @@
-package main
+package src
 
 import (
 	"github.com/GeertJohan/go.rice/embedded"
