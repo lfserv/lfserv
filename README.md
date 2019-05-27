@@ -5,6 +5,8 @@ LFS Test Server
 [lfs]: https://github.com/github/git-lfs
 [api]: https://github.com/github/git-lfs/tree/master/docs/api#readme
 
+[![Build Status](https://travis-ci.org/lfserv/lfserv.svg?branch=master)](https://travis-ci.org/lfserv/lfserv)
+
 LFS Test Server is an example server that implements the [Git LFS API][api]. It
 is intended to be used for testing the [Git LFS][lfs] client and is not in a
 production ready state.
