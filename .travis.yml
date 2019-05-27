@@ -1,0 +1,15 @@
+language: go
+
+go:
+  - master
+
+env:
+  global:
+    - APP_NAME=lfserv
+    - GOOS=linux
+    - GOARCH=amd64
+
+before_script:
+  - mkdir build
+
+script: go build -o build/${APP_NAME}-${GOOS}-${GOARCH} src/${APP_NAME}.go
