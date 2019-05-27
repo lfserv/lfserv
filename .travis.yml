@@ -1,11 +1,10 @@
 language: go
 
 go:
-  - "1.12.5"
+  - master
 
 env:
   global:
-    - GOMOD="${TRAVIS_BUILD_DIR}/go.mod"
     - APP_NAME=lfserv
     - GOOS=linux
     - GOARCH=amd64
