@@ -1,7 +1,7 @@
 language: go
 
 go:
-  - master
+  - "1.12.5"
 
 env:
   global:
@@ -12,4 +12,4 @@ env:
 before_script:
   - mkdir build
 
-script: go build -o build/${APP_NAME}-${GOOS}-${GOARCH} src/${APP_NAME}.go
+script: go build -o build/${APP_NAME}-${GOOS}-${GOARCH} ${APP_NAME}.go

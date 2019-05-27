@@ -12,7 +12,7 @@
 name="lfserv"
 
 function validate() {
-    go build -o lfserv src/${name}.go
+    go build -o lfserv ${name}.go
     rc=$?; if [[ ${rc} != 0 ]]; then echo "Build failed."; exit ${rc}; fi
     version=$(./lfserv -v)
 
@@ -44,7 +44,7 @@ function build() {
     do
         echo "Building ${os} amd64"
         mkdir -p dist/${os}-amd64
-        GOOS=${os} GOARCH=amd64 go build -o dist/${os}-amd64/${name} src/${name}.go
+        GOOS=${os} GOARCH=amd64 go build -o dist/${os}-amd64/${name} ${name}.go
         cp README.md dist/${os}-amd64
         cp LICENSE dist/${os}-amd64
         cd dist
@@ -53,7 +53,7 @@ function build() {
     done
     echo "Building windows amd64"
     mkdir -p dist/windows-amd64
-    GOOS=windows GOARCH=amd64 go build -o dist/windows-amd64/${name}.exe src/${name}.go
+    GOOS=windows GOARCH=amd64 go build -o dist/windows-amd64/${name}.exe ${name}.go
     cp README.md dist/windows-amd64
     cp LICENSE dist/windows-amd64
     cd dist
