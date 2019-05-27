@@ -5,7 +5,7 @@ go:
 
 env:
   global:
-    - GO111MODULE=1
+    - GOMOD="${TRAVIS_BUILD_DIR}/go.mod"
     - APP_NAME=lfserv
     - GOOS=linux
     - GOARCH=amd64
