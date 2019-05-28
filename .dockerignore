@@ -1,6 +1,7 @@
 .git
+.idea
 lfs-content
 lfs.db
 Procfile
-Readme.md
+*.md
 TODO

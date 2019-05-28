@@ -5,6 +5,7 @@ go:
 
 env:
   global:
+    - GO111MODULE=on
     - APP_NAME=lfserv
     - GOOS=linux
     - GOARCH=amd64
