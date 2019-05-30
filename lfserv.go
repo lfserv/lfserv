@@ -3,8 +3,9 @@ package main
 import (
 	"github.com/apex/log"
 	"github.com/gramework/gramework"
-	"lfserv/storage/filesystem_store"
-	"lfserv/storage/redis_store"
+	"lfserv/storages/content/filesystem_store"
+	"lfserv/storages/meta/boltdb_store"
+	"lfserv/storages/meta/redis_store"
 	"lfserv/store"
 	"os"
 	"strings"
@@ -33,13 +34,11 @@ func init() {
 	case "redis":
 		metaStore = &redis_store.RedisStore{}
 	default:
-		log.Fatalf("%s unknown or empty", envMetaStore)
+		metaStore = &boltdb_store.BoltStore{}
 	}
 	switch cStore {
-	case "filesystem":
-		contentStore = &filesystem_store.FileSystemStore{}
 	default:
-		log.Fatalf("%s unknown or empty", envContentStore)
+		contentStore = &filesystem_store.FileSystemStore{}
 	}
 }
 
