@@ -3,18 +3,18 @@ package boltdb_store
 import (
 	"encoding/json"
 	"github.com/lfserv/bolt"
-	"lfserv/store"
+	"lfserv/api/types"
 	"sort"
 )
 
-func (s *BoltStore) AddLocks(repo string, l ...store.Lock) error {
+func (s *BoltStore) AddLocks(repo string, l ...types.Lock) error {
 	return s.db.Update(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket(locksBucket)
 		if bucket == nil {
 			return errNoBucket
 		}
 
-		var locks []store.Lock
+		var locks []types.Lock
 		data := bucket.Get([]byte(repo))
 		if data != nil {
 			if err := json.Unmarshal(data, &locks); err != nil {
@@ -22,7 +22,7 @@ func (s *BoltStore) AddLocks(repo string, l ...store.Lock) error {
 			}
 		}
 		locks = append(locks, l...)
-		sort.Sort(store.LocksByCreatedAt(locks))
+		sort.Sort(types.LocksByCreatedAt(locks))
 		data, err := json.Marshal(&locks)
 		if err != nil {
 			return err

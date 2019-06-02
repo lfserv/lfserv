@@ -2,10 +2,10 @@ package boltdb_store
 
 import (
 	"github.com/lfserv/bolt"
-	"lfserv/store"
+	"lfserv/api/types"
 )
 
-func (s *BoltStore) Delete(v *store.RequestVars) error {
+func (s *BoltStore) Delete(v *types.RequestVars) error {
 	return s.db.Update(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket(objectsBucket)
 		if bucket == nil {

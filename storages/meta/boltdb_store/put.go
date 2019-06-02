@@ -4,10 +4,10 @@ import (
 	"bytes"
 	"encoding/gob"
 	"github.com/lfserv/bolt"
-	"lfserv/store"
+	"lfserv/api/types"
 )
 
-func (s *BoltStore) Put(v *store.RequestVars) (*store.MetaObject, error) {
+func (s *BoltStore) Put(v *types.RequestVars) (*types.MetaObject, error) {
 	// Check if it exists first
 	if meta, err := s.Get(v); err == nil {
 		meta.Existing = true
@@ -16,7 +16,7 @@ func (s *BoltStore) Put(v *store.RequestVars) (*store.MetaObject, error) {
 
 	var buf bytes.Buffer
 	enc := gob.NewEncoder(&buf)
-	meta := store.MetaObject{Oid: v.Oid, Size: v.Size}
+	meta := types.MetaObject{Oid: v.Oid, Size: v.Size}
 	err := enc.Encode(meta)
 	if err != nil {
 		return nil, err

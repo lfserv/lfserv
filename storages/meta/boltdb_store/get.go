@@ -1,9 +1,9 @@
 package boltdb_store
 
 import (
-	"lfserv/store"
+	"lfserv/api/types"
 )
 
-func (s *BoltStore) Get(v *store.RequestVars) (*store.MetaObject, error) {
+func (s *BoltStore) Get(v *types.RequestVars) (*types.MetaObject, error) {
 	return s.UnsafeGet(v)
 }

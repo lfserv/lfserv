@@ -3,11 +3,11 @@ package boltdb_store
 import (
 	"encoding/json"
 	"github.com/lfserv/bolt"
-	"lfserv/store"
+	"lfserv/api/types"
 )
 
-func (s *BoltStore) Locks(repo string) ([]store.Lock, error) {
-	var locks []store.Lock
+func (s *BoltStore) Locks(repo string) ([]types.Lock, error) {
+	var locks []types.Lock
 	err := s.db.View(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket(locksBucket)
 		if bucket == nil {

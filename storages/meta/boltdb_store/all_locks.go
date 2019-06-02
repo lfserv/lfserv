@@ -4,11 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/lfserv/bolt"
-	"lfserv/store"
+	"lfserv/api/types"
 )
 
-func (s *BoltStore) AllLocks() ([]store.Lock, error) {
-	var locks []store.Lock
+func (s *BoltStore) AllLocks() ([]types.Lock, error) {
+	var locks []types.Lock
 	err := s.db.View(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket(locksBucket)
 		if bucket == nil {
@@ -16,7 +16,7 @@ func (s *BoltStore) AllLocks() ([]store.Lock, error) {
 		}
 
 		return bucket.ForEach(func(k, v []byte) error {
-			var l []store.Lock
+			var l []types.Lock
 			if err := json.Unmarshal(v, &l); err != nil {
 				return err
 			}

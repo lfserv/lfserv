@@ -1,9 +1,9 @@
 package redis_store
 
 import (
-	"lfserv/store"
+	"lfserv/api/types"
 )
 
-func (s *RedisStore) AllLocks() ([]store.Lock, error) {
+func (s *RedisStore) AllLocks() ([]types.Lock, error) {
 	return nil, nil
 }

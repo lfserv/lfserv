@@ -1,9 +1,9 @@
 package redis_store
 
 import (
-	"lfserv/store"
+	"lfserv/api/types"
 )
 
-func (s *RedisStore) DeleteLock(repo, user, id string, force bool) (*store.Lock, error) {
+func (s *RedisStore) DeleteLock(repo, user, id string, force bool) (*types.Lock, error) {
 	return nil, nil
 }

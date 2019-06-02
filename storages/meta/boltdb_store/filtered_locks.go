@@ -2,12 +2,12 @@ package boltdb_store
 
 import (
 	"fmt"
-	"lfserv/store"
+	"lfserv/api/types"
 	"math"
 	"strconv"
 )
 
-func (s *BoltStore) FilteredLocks(repo, path, cursor, limit string) (locks []store.Lock, next string, err error) {
+func (s *BoltStore) FilteredLocks(repo, path, cursor, limit string) (locks []types.Lock, next string, err error) {
 	locks, err = s.Locks(repo)
 	if err != nil {
 		return
@@ -31,7 +31,7 @@ func (s *BoltStore) FilteredLocks(repo, path, cursor, limit string) (locks []sto
 	}
 
 	if path != "" {
-		var filtered []store.Lock
+		var filtered []types.Lock
 		for _, l := range locks {
 			if l.Path == path {
 				filtered = append(filtered, l)
@@ -45,7 +45,7 @@ func (s *BoltStore) FilteredLocks(repo, path, cursor, limit string) (locks []sto
 		var size int
 		size, err = strconv.Atoi(limit)
 		if err != nil || size < 0 {
-			locks = make([]store.Lock, 0)
+			locks = make([]types.Lock, 0)
 			err = fmt.Errorf("invalid limit amount: %s", limit)
 			return
 		}

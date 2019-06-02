@@ -1,9 +1,9 @@
 package redis_store
 
 import (
-	"lfserv/store"
+	"lfserv/api/types"
 )
 
-func (s *RedisStore) Delete(v *store.RequestVars) error {
+func (s *RedisStore) Delete(v *types.RequestVars) error {
 	return nil
 }

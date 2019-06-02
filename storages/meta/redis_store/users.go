@@ -1,9 +1,9 @@
 package redis_store
 
 import (
-	"lfserv/store"
+	"lfserv/api/types"
 )
 
-func (s *RedisStore) Users() ([]*store.User, error) {
+func (s *RedisStore) Users() ([]*types.User, error) {
 	return nil, nil
 }

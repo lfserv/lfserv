@@ -1,4 +1,4 @@
-package store
+package types
 
 type UnlockRequest struct {
 	Force bool `json:"force"`

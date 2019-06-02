@@ -3,10 +3,10 @@ package main
 import (
 	"github.com/apex/log"
 	"github.com/gramework/gramework"
+	"lfserv/api/store"
 	"lfserv/storages/content/filesystem_store"
 	"lfserv/storages/meta/boltdb_store"
 	"lfserv/storages/meta/redis_store"
-	"lfserv/store"
 	"os"
 	"strings"
 )

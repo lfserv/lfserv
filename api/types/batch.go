@@ -1,4 +1,4 @@
-package store
+package types
 
 type BatchVars struct {
 	Transfers []string       `json:"transfers,omitempty"`

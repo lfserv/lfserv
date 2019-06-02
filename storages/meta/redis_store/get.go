@@ -1,9 +1,9 @@
 package redis_store
 
 import (
-	"lfserv/store"
+	"lfserv/api/types"
 )
 
-func (s *RedisStore) Get(v *store.RequestVars) (*store.MetaObject, error) {
+func (s *RedisStore) Get(v *types.RequestVars) (*types.MetaObject, error) {
 	return nil, nil
 }

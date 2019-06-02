@@ -1,4 +1,4 @@
-package store
+package types
 
 // RequestVars contain variables from the HTTP request. Variables from routing, json body decoding, and
 // some headers are stored.

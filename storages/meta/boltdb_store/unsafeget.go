@@ -4,11 +4,11 @@ import (
 	"bytes"
 	"encoding/gob"
 	"github.com/lfserv/bolt"
-	"lfserv/store"
+	"lfserv/api/types"
 )
 
-func (s *BoltStore) UnsafeGet(v *store.RequestVars) (*store.MetaObject, error) {
-	var meta store.MetaObject
+func (s *BoltStore) UnsafeGet(v *types.RequestVars) (*types.MetaObject, error) {
+	var meta types.MetaObject
 
 	err := s.db.View(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket(objectsBucket)

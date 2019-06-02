@@ -2,11 +2,11 @@ package boltdb_store
 
 import (
 	"github.com/lfserv/bolt"
-	"lfserv/store"
+	"lfserv/api/types"
 )
 
-func (s *BoltStore) Users() ([]*store.User, error) {
-	var users []*store.User
+func (s *BoltStore) Users() ([]*types.User, error) {
+	var users []*types.User
 
 	err := s.db.View(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket(usersBucket)
@@ -15,7 +15,7 @@ func (s *BoltStore) Users() ([]*store.User, error) {
 		}
 
 		return bucket.ForEach(func(k, v []byte) error {
-			users = append(users, &store.User{Name: string(k)})
+			users = append(users, &types.User{Name: string(k)})
 			return nil
 		})
 	})

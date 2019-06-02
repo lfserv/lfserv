@@ -1,4 +1,4 @@
-package store
+package types
 
 // MetaObject is object metadata as seen by the object and metadata stores.
 type MetaObject struct {

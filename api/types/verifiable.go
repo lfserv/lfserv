@@ -1,4 +1,4 @@
-package store
+package types
 
 type VerifiableLockRequest struct {
 	Cursor string `json:"cursor,omitempty"`
